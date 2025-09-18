@@ -1,0 +1,83 @@
+@startuml
+
+package "Users" {
+  package "Controller" {
+    class UserController
+    class EmployeeController
+  }
+  package "Service" {
+    class UserService
+    class EmployeeService
+  }
+  package "Repository" {
+    class UserRepository
+    class EmployeeRepository
+  }
+  package "Model" {
+    class Customer
+    class Employee
+    class EmployeeShift
+  }
+}
+
+package "Movies" {
+  package "Controller" {
+    class MovieController
+    class RoomController
+    class ScreeningController
+  }
+  package "Service" {
+    class MovieService
+    class RoomService
+    class ScreeningService
+  }
+  package "Repository" {
+    class MovieRepository
+    class RoomRepository
+    class ScreeningRepository
+  }
+  package "Model" {
+    class Movie
+    class Room
+    class Screening
+  }
+}
+
+package "Sales" {
+  package "Controller" {
+    class TicketController
+    class ReservationController
+    class FoodController
+  }
+  package "Service" {
+    class TicketService
+    class ReservationService
+    class FoodService
+  }
+  package "Repository" {
+    class TicketRepository
+    class ReservationRepository
+    class FoodRepository
+  }
+  package "Model" {
+    class Ticket
+    class Reservation
+    class Food
+    class FoodPurchase
+  }
+}
+
+' Dependencias entre capas
+Users.Controller --> Users.Service
+Users.Service --> Users.Repository
+Users.Repository --> Users.Model
+
+Movies.Controller --> Movies.Service
+Movies.Service --> Movies.Repository
+Movies.Repository --> Movies.Model
+
+Sales.Controller --> Sales.Service
+Sales.Service --> Sales.Repository
+Sales.Repository --> Sales.Model
+
+@enduml

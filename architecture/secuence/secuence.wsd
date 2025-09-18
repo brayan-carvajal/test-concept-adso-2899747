@@ -1,0 +1,26 @@
+@startuml
+actor Cliente
+participant "Sistema" as Sistema
+participant "Movie"
+participant "Screening"
+participant "Reservation"
+participant "Ticket"
+
+Cliente -> Sistema: Iniciar Sesión
+Sistema -> Cliente: Confirmación de sesión
+
+Cliente -> Sistema: Ver Cartelera
+Sistema -> Movie: Consultar películas
+Sistema -> Screening: Consultar funciones
+Sistema -> Cliente: Mostrar cartelera y funciones
+
+Cliente -> Sistema: Seleccionar Función
+Sistema -> Reservation: Crear reserva
+Reservation --> Sistema: Reserva creada
+
+Cliente -> Sistema: Confirmar compra
+Sistema -> Ticket: Generar ticket
+Ticket --> Sistema: Ticket generado
+
+Sistema -> Cliente: Mostrar confirmación y ticket
+@enduml

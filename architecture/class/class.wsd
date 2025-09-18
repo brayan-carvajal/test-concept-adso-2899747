@@ -1,0 +1,121 @@
+@startuml
+class Customer {
+  +idCustomer: int
+  +name: string
+  +email: string
+  +password: string
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class Movie {
+  +idMovie: int
+  +title: string
+  +description: string
+  +gender: string
+  +duration: int
+  +imgUrl: string
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class Room {
+  +idRoom: int
+  +roomNumber: int
+  +capacity: int
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class Employee {
+  +idEmployee: int
+  +name: string
+  +position: string
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class Food {
+  +idFood: int
+  +name: string
+  +price: decimal
+  +imgUrl: string
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class Screening {
+  +idScreening: int
+  +dateTime: date
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class Ticket {
+  +idTicket: int
+  +price: decimal
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class Reservation {
+  +idReservation: int
+  +ticketQuantity: int
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class FoodPurchase {
+  +idPurchase: int
+  +quantity: int
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+class EmployeeShift {
+  +idShift: int
+  +dateTime: date
+  
+  +create()
+  +read()
+  +update()
+  +delete()
+}
+
+' Relaciones
+Customer "1" --> "many" Ticket
+Customer "1" --> "many" Reservation
+Customer "1" --> "many" FoodPurchase
+Movie "1" --> "many" Screening
+Room "1" --> "many" Screening
+Screening "1" --> "many" Ticket
+Employee "1" --> "many" EmployeeShift
+Food "1" --> "many" FoodPurchase
+@enduml
